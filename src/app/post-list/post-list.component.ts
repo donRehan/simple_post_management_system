@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PostServiceService } from '../post-service.service';
 import { Observable, map } from "rxjs";
 import * as _ from 'lodash';
 
@@ -19,20 +20,10 @@ export class PostListComponent implements OnInit{
   posts$: Observable<Post[]>;
   firstPost: any;
 
-  constructor(private http: HttpClient) { }
-
-  clicker() {
-    console.log('first post');
-    console.log(this.getfirst_post());
-  }
-
-  getfirst_post() {
-    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-    .pipe(map(posts => posts[0]));
-  }
+  constructor(private postService: PostServiceService) { }
 
   ngOnInit() {
-       this.getfirst_post()
+       this.postService.getfirst_post()
       .subscribe(post => this.firstPost = post);
   }
 }

@@ -3,7 +3,7 @@ Task: Create a Post Management System
 1.  Create a post List Component:
 
 [x]    Create a component that displays a list of posts.
-[_]    Create a service to take the requests and then have post-list as a
+[x]    Create a service to take the requests and then have post-list as a
        separate component (my thought)
 [_]    Fetch the list of users from an API using Angular's HttpClient module.
 [_]    Display the user data in a table with columns such as ID, Name, Email, etc.
