@@ -1,0 +1,30 @@
+Task: Create a Post Management System
+
+1.  Create a post List Component:
+
+[x]    Create a component that displays a list of posts.
+[_]    Create a service to take the requests and then have post-list as a
+       separate component (my thought)
+[_]    Fetch the list of users from an API using Angular's HttpClient module.
+[_]    Display the user data in a table with columns such as ID, Name, Email, etc.
+[_]    Add pagination functionality to display a limited number of posts per page.
+
+2.  Create a Post Detail Component:
+
+    Create a component that displays the details of a selected post.
+    When a user is clicked from the Post List, navigate to the Post Detail component.
+    Fetch the detailed post data based on the selected post's ID from the API.
+    Display the post's detailed information such as Name, Email, Address, etc.
+
+3. Implement Routing:
+
+    Set up Angular routing to navigate between the post List andpost Details
+    Define routes for each component and configure them in the app-routing.module.ts file.
+    Use Angular's routerLink directive to navigate between components.
+
+4.  Add Error Handling and Validation:
+
+    Implement error handling for API requests and display appropriate error messages.
+    Validate the input fields in the User Edit component and display validation errors if required.
+
+resources : https://jsonplaceholder.typicode.com/

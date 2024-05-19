@@ -1,0 +1,9 @@
+<p>post-list works!</p>
+<button (click)="clicker()">click here</button>
+<div *ngIf="firstPost">
+  <h2>First Post</h2>
+  <p>User ID: {{ firstPost.userId }}</p>
+  <p>ID: {{ firstPost.id }}</p>
+  <p>Title: {{ firstPost.title }}</p>
+  <p>Body: {{ firstPost.body }}</p>
+</div>
