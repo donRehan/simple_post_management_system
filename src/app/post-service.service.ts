@@ -14,7 +14,6 @@ interface Post {
   providedIn: 'root'
 })
 export class PostServiceService {
-  //Where posts come and are handled
   posts_source = 'https://jsonplaceholder.typicode.com/posts'
 
   constructor(private http: HttpClient) { }

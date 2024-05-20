@@ -19,7 +19,6 @@ interface Post {
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit{
-  // Where posts are handled and displayed
   posts$: any;
   pageEvent: PageEvent;
   activePageDataChunk = [];
@@ -36,7 +35,6 @@ export class PostListComponent implements OnInit{
   }
 
   constructor(private postService: PostServiceService) {
-   //this.activePageDataChunk = this.posts$.slice(0, this.pageSize)
   }
 
   setPageSizeOptions(setPageSizeOptionsInput: string) {

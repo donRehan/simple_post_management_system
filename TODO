@@ -9,9 +9,6 @@ Task: Create a Post Management System
 [x]    Display the user data in a table with columns such as ID, Name, Email, etc.
 [x]    Add pagination functionality to display a limited number of posts per page.
 
-       Bug introduced with the material buttons , figure a solution
-       Upon completion clean code as it matters in the evaluations
-
 3. Implement Routing:
 
     Set up Angular routing to navigate between the post List andpost Details
