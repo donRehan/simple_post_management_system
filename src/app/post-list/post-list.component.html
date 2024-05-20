@@ -1,20 +1,21 @@
-<table *ngIf="posts$.length > 0">
+<table *ngIf="posts$">
   <thead>
     <tr>
-      <th>user Id</th>
       <th>post Id</th>
       <th>Title</th>
-      <th>Body</th>
       </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let post of posts$">
-      <td>{{ post.userId }}</td>
+    <tr *ngFor="let post of activePageDataChunk">
       <td>{{ post.id }}</td>
       <td>{{ post.title }}</td>
-      <td>{{ post.body }}</td>
       </tr>
   </tbody>
 </table>
 
-<p *ngIf="posts$.length === 0">No users data found.</p>
+<mat-paginator [length]="length" [pageSize]="pageSize" aria-label="Select page"
+  [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)"
+>
+</mat-paginator>
+
+<p *ngIf="!posts$">Error! <br> No User data found.</p>

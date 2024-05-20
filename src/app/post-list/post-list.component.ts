@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PostServiceService } from '../post-service.service';
-import { Observable, map } from "rxjs";
+import { Subject, Observable, map } from "rxjs";
 import * as _ from 'lodash';
+import {MatPaginatorIntl, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import '@angular/material/core';
 
 interface Post {
   userId: number;
@@ -19,11 +21,31 @@ interface Post {
 export class PostListComponent implements OnInit{
   // Where posts are handled and displayed
   posts$: any;
+  pageEvent: PageEvent;
+  activePageDataChunk = [];
+  length = 1000;
+  pageSize = 10;
+  pageSizeOptions = [5, 10, 25, 100];
 
-  constructor(private postService: PostServiceService) { }
-
-  ngOnInit() {
+  ngOnInit()  {
        this.postService.getfirst_post()
-      .subscribe(posts => this.posts$ = posts);
+      .subscribe(posts => {this.posts$ = posts
+        this.activePageDataChunk = this.posts$.slice(0, this.pageSize)
+      }
+      );
+  }
+
+  constructor(private postService: PostServiceService) {
+   //this.activePageDataChunk = this.posts$.slice(0, this.pageSize)
+  }
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+
+  onPageChanged(e) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.posts$.slice(firstCut, secondCut);
   }
 }

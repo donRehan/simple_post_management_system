@@ -21,6 +21,6 @@ export class PostServiceService {
 
   getfirst_post() {
     return this.http.get<Post[]>(this.posts_source)
-    .pipe(map(posts => posts.slice(0,11)));
+    .pipe(map(posts => posts));
   }
 }

@@ -6,8 +6,17 @@ Task: Create a Post Management System
 [x]    Create a service to take the requests and then have post-list as a
        separate component (my thought)
 [x]    Fetch the list of users from an API using Angular's HttpClient module.
-[_]    Display the user data in a table with columns such as ID, Name, Email, etc.
-[_]    Add pagination functionality to display a limited number of posts per page.
+[x]    Display the user data in a table with columns such as ID, Name, Email, etc.
+[x]    Add pagination functionality to display a limited number of posts per page.
+
+       Bug introduced with the material buttons , figure a solution
+       Upon completion clean code as it matters in the evaluations
+
+3. Implement Routing:
+
+    Set up Angular routing to navigate between the post List andpost Details
+    Define routes for each component and configure them in the app-routing.module.ts file.
+    Use Angular's routerLink directive to navigate between components.
 
 2.  Create a Post Detail Component:
 
@@ -15,12 +24,6 @@ Task: Create a Post Management System
     When a user is clicked from the Post List, navigate to the Post Detail component.
     Fetch the detailed post data based on the selected post's ID from the API.
     Display the post's detailed information such as Name, Email, Address, etc.
-
-3. Implement Routing:
-
-    Set up Angular routing to navigate between the post List andpost Details
-    Define routes for each component and configure them in the app-routing.module.ts file.
-    Use Angular's routerLink directive to navigate between components.
 
 4.  Add Error Handling and Validation:
 
