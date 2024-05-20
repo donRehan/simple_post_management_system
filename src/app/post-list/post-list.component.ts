@@ -17,13 +17,13 @@ interface Post {
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit{
-  posts$: Observable<Post[]>;
-  firstPost: any;
+  // Where posts are handled and displayed
+  posts$: any;
 
   constructor(private postService: PostServiceService) { }
 
   ngOnInit() {
        this.postService.getfirst_post()
-      .subscribe(post => this.firstPost = post);
+      .subscribe(posts => this.posts$ = posts);
   }
 }

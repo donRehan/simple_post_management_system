@@ -14,11 +14,13 @@ interface Post {
   providedIn: 'root'
 })
 export class PostServiceService {
+  //Where posts come and are handled
+  posts_source = 'https://jsonplaceholder.typicode.com/posts'
 
   constructor(private http: HttpClient) { }
 
   getfirst_post() {
-    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-    .pipe(map(posts => posts[0]));
+    return this.http.get<Post[]>(this.posts_source)
+    .pipe(map(posts => posts.slice(0,11)));
   }
 }
