@@ -22,4 +22,9 @@ export class PostServiceService {
     return this.http.get<Post[]>(this.posts_source)
     .pipe(map(posts => posts));
   }
+
+  getPost(id: number){
+    return this.http.get<Post>(`${this.posts_source}/${id}`)
+    .pipe(map(post => post));
+  }
 }

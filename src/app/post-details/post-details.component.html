@@ -1,0 +1,7 @@
+<h1 *ngIf="Post">{{ Post.title }}</h1>
+<p>{{Post.body}}</p>
+<br>
+<li>PostId : {{Post.id}}</li>
+<li>UserId : {{Post.userId}}</li>
+
+<p *ngIf="!Post">Error! <br> No Post data found.</p>

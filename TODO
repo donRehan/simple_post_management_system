@@ -1,3 +1,18 @@
+Before starting
+===============
+BUG
+When page loads it first says no users found , may have to do
+with the async think about it and ask too
+BUG
+It says 1000 when the list has only 100 make that number dynamic
+BUG::coding style
+in post service we have a function called getFirstpost that returns
+all post change its name using the lsp when everything is finished
+then see if changes dont break anything
+TODO
+Do basic formatting for the data in the form for it to be aligned
+properly
+
 Task: Create a Post Management System
 
 1.  Create a post List Component:
@@ -9,18 +24,19 @@ Task: Create a Post Management System
 [x]    Display the user data in a table with columns such as ID, Name, Email, etc.
 [x]    Add pagination functionality to display a limited number of posts per page.
 
-3. Implement Routing:
-
-    Set up Angular routing to navigate between the post List andpost Details
-    Define routes for each component and configure them in the app-routing.module.ts file.
-    Use Angular's routerLink directive to navigate between components.
-
 2.  Create a Post Detail Component:
 
-    Create a component that displays the details of a selected post.
-    When a user is clicked from the Post List, navigate to the Post Detail component.
-    Fetch the detailed post data based on the selected post's ID from the API.
-    Display the post's detailed information such as Name, Email, Address, etc.
+[x] Create a component that displays the details of a selected post.
+[x] When a user is clicked from the Post List, navigate to the Post Detail component.
+[x] Fetch the detailed post data based on the selected post's ID from the API.
+[x] Display the post's detailed information such as Name, Email, Address, etc.
+
+
+3. Implement Routing:
+
+[x] Set up Angular routing to navigate between the post List andpost Details
+    Define routes for each component and configure them in the app-routing.module.ts file.
+    Use Angular's routerLink directive to navigate between components.
 
 4.  Add Error Handling and Validation:
 
