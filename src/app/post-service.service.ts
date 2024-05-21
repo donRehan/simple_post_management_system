@@ -18,7 +18,7 @@ export class PostServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getfirst_post() {
+  posts_getter() {
     return this.http.get<Post[]>(this.posts_source)
     .pipe(map(posts => posts));
   }

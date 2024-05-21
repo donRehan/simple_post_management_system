@@ -1,3 +1,9 @@
+[_] Allow user to edit posts
+  [_] have an api on system consists of three elements maybe
+  [_] upon edit you can update it
+  [_] how can I make it use the http client ? check the heroes api
+  [_] Should be done
+
 Before starting
 ===============
 BUG
@@ -5,10 +11,6 @@ When page loads it first says no users found , may have to do
 with the async think about it and ask too
 BUG
 It says 1000 when the list has only 100 make that number dynamic
-BUG::coding style
-in post service we have a function called getFirstpost that returns
-all post change its name using the lsp when everything is finished
-then see if changes dont break anything
 TODO
 Do basic formatting for the data in the form for it to be aligned
 properly
