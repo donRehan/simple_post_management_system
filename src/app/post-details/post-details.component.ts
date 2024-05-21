@@ -54,6 +54,14 @@ export class PostDetailsComponent {
   submit_title(value: string){
     this.Post.title = value;
     this.hideTitle = !this.hideTitle;
+    this.edit_post();
   }
+
+  edit_post(): void {
+   //path: 'detail/:id',
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.postService.updatePost(id, this.Post).subscribe();
+  }
+
 
 }

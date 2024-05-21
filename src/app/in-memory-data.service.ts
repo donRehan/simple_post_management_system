@@ -4,7 +4,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 @Injectable({
   providedIn: 'root'
 })
-export class InMemoryDataService {
+export class InMemoryDataService implements InMemoryDbService{
   createDb(){
     // postdata , post id , username, user email
     const data = [

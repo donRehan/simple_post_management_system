@@ -16,6 +16,9 @@ interface Post {
 export class PostServiceService {
   posts_source = '';
   mock_dataUrl = 'api/data';
+  httpOptions= {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private http: HttpClient) { }
 
@@ -37,6 +40,13 @@ export class PostServiceService {
   getmockPost(id: number){
     return this.http.get<Post>(`${this.mock_dataUrl}/${id}`)
     .pipe(filter(post => post.id === id));
+  }
+
+  // only for mock data
+  updatePost(id: number, post: Post)
+  {
+    let updated_post = post;
+    return this.http.put<Post>(`${this.mock_dataUrl}/${id}`, updated_post, this.httpOptions);
   }
 
 }
