@@ -1,7 +1,30 @@
-<h1 *ngIf="Post">{{ Post.title }}</h1>
-<p>{{Post.body}}</p>
-<br>
-<li>PostId : {{Post.id}}</li>
-<li>UserId : {{Post.userId}}</li>
+<div *ngIf="Post">
+  <div *ngIf="!hideTitle">
+    <h1>{{ Post.title }}</h1>
+    <button (click)="edit_title()">edit title</button>
+  </div>
+
+  <div *ngIf="hideTitle">
+    <input type="text" value="{{Post.title}}" #titleInput>
+    <button (click)="submit_title(titleInput.value)">submit change</button>
+    <button (click)="edit_title()">Cancel</button>
+  </div>
+
+
+  <div *ngIf="!hideBody">
+    <p>{{Post.body}}</p>
+    <button (click)="edit_body()">edit body</button>
+  </div>
+
+  <div *ngIf="hideBody">
+    <input type="text" value="{{Post.body}}" #bodyInput>
+    <button (click)="submit_body(bodyInput.value)">submit change</button>
+    <button (click)="edit_body()">Cancel</button>
+  </div>
+
+  <br>
+  <li>PostId : {{Post.id}}</li>
+  <li>UserId : {{Post.userId}}</li>
+</div>
 
 <p *ngIf="!Post">Error! <br> No Post data found.</p>

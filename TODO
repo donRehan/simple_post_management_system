@@ -1,8 +1,7 @@
 [_] Allow user to edit posts
-  [_] have an api on system consists of three elements maybe
+  [x] have an api on system consists of three elements maybe
   [_] upon edit you can update it
-  [_] how can I make it use the http client ? check the heroes api
-  [_] Should be done
+  [x] how can I make it use the http client ? check the heroes api
 
 Before starting
 ===============

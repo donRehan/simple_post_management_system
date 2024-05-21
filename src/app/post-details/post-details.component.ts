@@ -11,6 +11,8 @@ import { PostServiceService } from '../post-service.service';
 export class PostDetailsComponent {
   postId: number;
   Post = {userId: null, title: null, body: null , id: null}
+  hideTitle = false;
+  hideBody = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private location: Location,
@@ -34,6 +36,24 @@ export class PostDetailsComponent {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.postService.getmockPost(id)
       .subscribe(post => this.Post = post);
+  }
+
+  edit_title() {
+    this.hideTitle = !this.hideTitle;
+  }
+
+  edit_body() {
+    this.hideBody = !this.hideBody;
+  }
+
+  submit_body(value: string){
+    this.Post.body = value;
+    this.hideBody = !this.hideBody;
+  }
+
+  submit_title(value: string){
+    this.Post.title = value;
+    this.hideTitle = !this.hideTitle;
   }
 
 }
