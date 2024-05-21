@@ -8,7 +8,7 @@
   <tbody>
     <tr *ngFor="let post of activePageDataChunk">
         <td>{{ post.id }}</td>
-      <a [routerLink]="['/post', post.id]">
+      <a [routerLink]="['/api/data', post.id]">
         <td >{{ post.title }}</td>
       </a>
       </tr>

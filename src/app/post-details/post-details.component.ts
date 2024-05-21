@@ -10,7 +10,7 @@ import { PostServiceService } from '../post-service.service';
 })
 export class PostDetailsComponent {
   postId: number;
-  Post: any;
+  Post = {userId: null, title: null, body: null , id: null}
 
   constructor(private activatedRoute: ActivatedRoute,
               private location: Location,
@@ -19,7 +19,8 @@ export class PostDetailsComponent {
   }
 
   ngOnInit(): void{
-    this.getPost_detail();
+   // this.getPost_detail();
+    this.getmockPost_detail();
   }
 
   getPost_detail(): void {
@@ -27,4 +28,12 @@ export class PostDetailsComponent {
     this.postService.getPost(id)
       .subscribe(post => this.Post = post);
   }
+
+  getmockPost_detail(): void {
+   //path: 'detail/:id',
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.postService.getmockPost(id)
+      .subscribe(post => this.Post = post);
+  }
+
 }

@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from "rxjs";
+import { Observable, map, filter } from "rxjs";
 import * as _ from 'lodash';
 
 interface Post {
@@ -14,7 +14,8 @@ interface Post {
   providedIn: 'root'
 })
 export class PostServiceService {
-  posts_source = 'https://jsonplaceholder.typicode.com/posts'
+  posts_source = '';
+  mock_dataUrl = 'api/data';
 
   constructor(private http: HttpClient) { }
 
@@ -27,4 +28,15 @@ export class PostServiceService {
     return this.http.get<Post>(`${this.posts_source}/${id}`)
     .pipe(map(post => post));
   }
+
+  getmockdata() {
+    return this.http.get<Post[]>(this.mock_dataUrl)
+    .pipe(map(posts => posts));
+  }
+
+  getmockPost(id: number){
+    return this.http.get<Post>(`${this.mock_dataUrl}/${id}`)
+    .pipe(filter(post => post.id === id));
+  }
+
 }

@@ -7,6 +7,10 @@
 Before starting
 ===============
 BUG
+When user enters a wrong url the app crashes.
+Figure how to route him to an error message saying the url
+doesnt exist with 404 or whatever the name of such codes
+BUG
 When page loads it first says no users found , may have to do
 with the async think about it and ask too
 BUG

@@ -27,7 +27,7 @@ export class PostListComponent implements OnInit{
   pageSizeOptions = [5, 10, 25, 100];
 
   ngOnInit()  {
-       this.postService.posts_getter()
+       this.postService.getmockdata()
       .subscribe(posts => {this.posts$ = posts
         this.activePageDataChunk = this.posts$.slice(0, this.pageSize)
       }
