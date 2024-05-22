@@ -57,6 +57,13 @@ export class PostDetailsComponent {
     this.edit_post();
   }
 
+  save(): void{
+    if(this.Post){
+      this.postService.updatebost(this.Post).subscribe();
+    }
+    this.hideTitle = !this.hideTitle;
+  }
+
   edit_post(): void {
    //path: 'detail/:id',
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));

@@ -33,13 +33,11 @@ export class PostServiceService {
   }
 
   getmockdata() {
-    return this.http.get<Post[]>(this.mock_dataUrl)
-    .pipe(map(posts => posts));
+    return this.http.get<Post[]>(this.mock_dataUrl);
   }
 
   getmockPost(id: number){
-    return this.http.get<Post>(`${this.mock_dataUrl}/${id}`)
-    .pipe(filter(post => post.id === id));
+    return this.http.get<Post>(`${this.mock_dataUrl}/${id}`);
   }
 
   // only for mock data
@@ -47,6 +45,10 @@ export class PostServiceService {
   {
     let updated_post = post;
     return this.http.put<Post>(`${this.mock_dataUrl}/${id}`, updated_post, this.httpOptions);
+  }
+
+  updatebost(post: Post): Observable<any>{
+    return this.http.put(this.mock_dataUrl, post, this.httpOptions);
   }
 
 }

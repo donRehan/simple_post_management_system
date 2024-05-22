@@ -17,6 +17,8 @@ It says 1000 when the list has only 100 make that number dynamic
 TODO
 Do basic formatting for the data in the form for it to be aligned
 properly
+ERROR HANDLING
+Add error handling api for the get and post requests
 
 Task: Create a Post Management System
 

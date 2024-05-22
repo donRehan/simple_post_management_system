@@ -5,8 +5,9 @@
   </div>
 
   <div *ngIf="hideTitle">
-    <input type="text" value="{{Post.title}}" #titleInput>
-    <button (click)="submit_title(titleInput.value)">submit change</button>
+    <h2>{{Post.title}}</h2>
+    <input type="text" value="{{Post.title}}" [(ngModel)]="Post.title" #titleInput>
+    <button (click)="save()">submit change</button>
     <button (click)="edit_title()">Cancel</button>
   </div>
 
