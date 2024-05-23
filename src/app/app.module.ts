@@ -13,6 +13,7 @@ import '@angular/localize/init';
 import '@angular/material/core';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,25 +1,26 @@
+<div class="container">
 <div *ngIf="Post">
-  <div *ngIf="!hideTitle">
+  <div *ngIf="!hideTitle" class="class_title">
     <h1>{{ Post.title }}</h1>
     <button (click)="edit_title()">edit title</button>
   </div>
 
-  <div *ngIf="hideTitle">
+  <div *ngIf="hideTitle" class="class_title">
     <h2>{{Post.title}}</h2>
     <input type="text" value="{{Post.title}}" [(ngModel)]="Post.title" #titleInput>
-    <button (click)="save()">submit change</button>
+    <button (click)="save_post()">submit change</button>
     <button (click)="edit_title()">Cancel</button>
   </div>
 
 
-  <div *ngIf="!hideBody">
+  <div *ngIf="!hideBody" class="post_body">
     <p>{{Post.body}}</p>
     <button (click)="edit_body()">edit body</button>
   </div>
 
-  <div *ngIf="hideBody">
-    <input type="text" value="{{Post.body}}" #bodyInput>
-    <button (click)="submit_body(bodyInput.value)">submit change</button>
+  <div *ngIf="hideBody" class="post_body">
+    <input type="text" value="{{Post.body}}" #bodyInput [(ngModel)]="Post.body">
+    <button (click)="save_body()">submit change</button>
     <button (click)="edit_body()">Cancel</button>
   </div>
 
@@ -29,3 +30,4 @@
 </div>
 
 <p *ngIf="!Post">Error! <br> No Post data found.</p>
+</div>

@@ -57,11 +57,18 @@ export class PostDetailsComponent {
     this.edit_post();
   }
 
-  save(): void{
+  save_body(): void{
     if(this.Post){
       this.postService.updatebost(this.Post).subscribe();
     }
-    this.hideTitle = !this.hideTitle;
+    this.edit_body();
+  }
+
+  save_post(): void{
+    if(this.Post){
+      this.postService.updatebost(this.Post).subscribe();
+    }
+    this.edit_title();
   }
 
   edit_post(): void {

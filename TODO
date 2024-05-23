@@ -1,10 +1,7 @@
-[_] Allow user to edit posts
-  [x] have an api on system consists of three elements maybe
-  [_] upon edit you can update it
-  [x] how can I make it use the http client ? check the heroes api
 
 Before starting
 ===============
+
 BUG
 When user enters a wrong url the app crashes.
 Figure how to route him to an error message saying the url
@@ -12,8 +9,6 @@ doesnt exist with 404 or whatever the name of such codes
 BUG
 When page loads it first says no users found , may have to do
 with the async think about it and ask too
-BUG
-It says 1000 when the list has only 100 make that number dynamic
 TODO
 Do basic formatting for the data in the form for it to be aligned
 properly

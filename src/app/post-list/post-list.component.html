@@ -1,21 +1,31 @@
-<table *ngIf="posts$">
-  <thead>
-    <tr>
-      <th>post Id</th>
-      <th>Title</th>
-      </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let post of activePageDataChunk">
-        <td>{{ post.id }}</td>
+
+<table mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  *ngIf="posts$"
+>
+
+  <!-- PostId column -->
+  <ng-container matColumnDef="Post Id">
+    <th mat-header-cell *matHeaderCellDef> Post Id </th>
+    <td mat-cell *matCellDef="let post"> {{post.id}} </td>
+  </ng-container>
+
+    <!-- PostId column -->
+  <ng-container matColumnDef="Post Title">
+    <th mat-header-cell *matHeaderCellDef> Post Title </th>
+    <td mat-cell *matCellDef="let post">
       <a [routerLink]="['/api/data', post.id]">
-        <td >{{ post.title }}</td>
+        {{post.title}}
       </a>
-      </tr>
-  </tbody>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayed_columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayed_columns;"></tr>
 </table>
 
-<mat-paginator [length]="length" [pageSize]="pageSize" aria-label="Select page"
+<mat-paginator [length]="data_length()" [pageSize]="pageSize" aria-label="Select page"
   [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)"
   *ngIf="posts$"
 >
