@@ -12,3 +12,13 @@
 .post_body {
   padding-top: 80px;
 }
+
+.title_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.details {
+  text-align: center;
+}

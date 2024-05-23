@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PostServiceService } from '../post-service.service';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-post-details',
@@ -13,6 +14,7 @@ export class PostDetailsComponent {
   Post = {userId: null, title: null, body: null , id: null}
   hideTitle = false;
   hideBody = false;
+  hasError = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private location: Location,
@@ -22,6 +24,7 @@ export class PostDetailsComponent {
 
   ngOnInit(): void{
    // this.getPost_detail();
+    console.log(this.hasError);
     this.getmockPost_detail();
   }
 
@@ -35,7 +38,8 @@ export class PostDetailsComponent {
    //path: 'detail/:id',
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.postService.getmockPost(id)
-      .subscribe(post => this.Post = post);
+      .subscribe({next: post => this.Post = post,
+                  error: err => this.hasError = true});
   }
 
   edit_title() {

@@ -14,6 +14,8 @@ import '@angular/material/core';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,9 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    MatTableModule
-
+    MatTableModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

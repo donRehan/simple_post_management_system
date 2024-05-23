@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
 const routes: Routes = [
   { path: '', component: PostListComponent },
   //{ path: 'post/:id', component: PostDetailsComponent }
-  { path: 'api/data/:id', component: PostDetailsComponent }
+  { path: 'api/data/:id', component: PostDetailsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

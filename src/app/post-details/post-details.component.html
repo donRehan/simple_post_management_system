@@ -1,33 +1,46 @@
 <div class="container">
 <div *ngIf="Post">
   <div *ngIf="!hideTitle" class="class_title">
-    <h1>{{ Post.title }}</h1>
-    <button (click)="edit_title()">edit title</button>
+    <div class="title_bar">
+      <h1>{{ Post.title }}</h1>
+      <button mat-button [matMenuTriggerFor]="menu">...</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="edit_title()">edit title</button>
+        <button mat-menu-item (click)="edit_body()">edit body</button>
+        </mat-menu>
+    </div>
   </div>
 
   <div *ngIf="hideTitle" class="class_title">
     <h2>{{Post.title}}</h2>
-    <input type="text" value="{{Post.title}}" [(ngModel)]="Post.title" #titleInput>
-    <button (click)="save_post()">submit change</button>
-    <button (click)="edit_title()">Cancel</button>
+    <div class="some_form">
+      <input type="text" value="{{Post.title}}" [(ngModel)]="Post.title" #titleInput>
+        <div class="form_buttons">
+          <button (click)="save_post()">submit change</button>
+          <button (click)="edit_title()">Cancel</button>
+        </div>
+    </div>
   </div>
 
 
   <div *ngIf="!hideBody" class="post_body">
     <p>{{Post.body}}</p>
-    <button (click)="edit_body()">edit body</button>
   </div>
 
   <div *ngIf="hideBody" class="post_body">
-    <input type="text" value="{{Post.body}}" #bodyInput [(ngModel)]="Post.body">
-    <button (click)="save_body()">submit change</button>
-    <button (click)="edit_body()">Cancel</button>
+    <div class="some_form">
+      <input type="text" value="{{Post.body}}" [(ngModel)]="Post.body" #bodyInput>
+        <div class="form_buttons">
+          <button (click)="save_body()">submit change</button>
+          <button (click)="edit_body()">Cancel</button>
+        </div>
+    </div>
   </div>
 
   <br>
-  <li>PostId : {{Post.id}}</li>
-  <li>UserId : {{Post.userId}}</li>
+      <ul>PostId : {{Post.id}}</ul>
+      <ul>UserId : {{Post.userId}}</ul>
 </div>
 
-<p *ngIf="!Post">Error! <br> No Post data found.</p>
+<p *ngIf="hasError">Error! <br> No Post data found.</p>
 </div>
