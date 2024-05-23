@@ -29,13 +29,15 @@ export class PostListComponent implements OnInit{
   //for material table
   displayed_columns : string[] = ['Post Id', 'Post Title'];
   dataSource : Post[];
+  hasError = false;
 
   ngOnInit()  {
        this.postService.getmockdata()
-      .subscribe(posts => {this.posts$ = posts;
+      .subscribe({next: posts => {this.posts$ = posts;
         this.dataSource = this.posts$.slice(0, this.pageSize);
-      }
-      );
+      },
+        error: err => this.hasError = true
+      });
   }
 
   constructor(private postService: PostServiceService) {
